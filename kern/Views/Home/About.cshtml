@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "About";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<p>Use this area to provide additional information.</p>
+
+
+<a href="@Url.Action("ExportToExcel", "Excel")" class="btn">
+    <i> Выгрузить шаблон Excel</i>
+</a>
+
+<a href="@Url.Action("Download", "Excel")" class="btn">
+    <i> Выгрузить шаблон Excel</i>
+</a>
+

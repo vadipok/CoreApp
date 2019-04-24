@@ -1,0 +1,104 @@
+﻿@using System.Security.Claims;
+@using kern.Models.Authentication;
+
+@{ 
+    // Извлекаем доменный логин пользователя
+    string domainLogin = User.Identity.Name;
+
+    // Вызов класса безопасности
+    Security security = new Security() { DomainLogin = domainLogin };
+
+    // Заполнение класса доменной информацией, для дальнейшего отображения ФИО
+    security.GetDomainInfo();
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - kern</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap4-toggle-3.4.0/css/bootstrap4-toggle.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/lib/Font-Awesome/css/all.css" />
+        <link rel="stylesheet" href="~/css/switch-size.scss" />
+        <link rel="stylesheet" href="~/css/switch-size.scss" />
+        <link rel="stylesheet" href="~/lib/alertifyjs/css/alertify.css" />
+        <link rel="stylesheet" href="~/lib/alertifyjs/css/themes/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <!--
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+          asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+          asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />-->
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/lib/Font-Awesome/css/all.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/lib/bootstrap4-toggle-3.4.0/css/bootstrap4-toggle.min.css" />
+        <link rel="stylesheet" href="~/lib/alertifyjs/css/alertify.min.css" />
+        <link rel="stylesheet" href="~/lib/alertifyjs/css/themes/bootstrap.min.css" />
+    </environment>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Керн</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Домашняя страница</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">Описание</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Контакты</a></li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <p class="text-white-50 my-2">Здравствуйте, @security.FullName!</p>
+                </form>
+            </div>
+        </nav>
+    </header>
+
+    <br />
+
+    <!--<partial name="_CookieConsentPartial" />-->
+
+    <div class="container body-content">
+        @RenderBody()
+
+        <div class="container footer-class">
+            <footer>
+                <hr class="index-hr" />
+                <p class="text-muted">&copy; 2019 - Разработчик Войкин Вадим</p>
+            </footer>
+        </div>
+    </div>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/lib/Font-Awesome/js/fontawesome.min.js" asp-append-version="true"></script>
+        <script src="~/lib/bootstrap4-toggle-3.4.0/js/bootstrap4-toggle.min.js" asp-append-version="true"></script>
+        <script src="~/lib/alertifyjs/alertify.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+        <script src="~/lib/Font-Awesome/js/fontawesome.min.js"></script>
+        <!--<script src="~/lib/bootstrap4-toggle-3.4.0/js/bootstrap4-toggle.min.js" asp-append-version="true"></script>-->
+        <script src="~/lib/alertifyjs/alertify.min.js"></script>
+    </environment>
+
+    
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

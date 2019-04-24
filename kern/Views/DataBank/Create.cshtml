@@ -1,0 +1,54 @@
+﻿@model kern.Models.MVC.FieldMVC
+
+@{
+    Layout = "_LayoutDataBank";
+}
+
+<form class="modifyForm" asp-antiforgery="true" asp-action="RegisterInput" asp-controller="DataBank">
+    <div>
+        <div class="validation" asp-validation-summary="ModelOnly"></div>
+        <div class="input-group mb-3 form-group">
+            <div class="input-group-prepend">
+                <label asp-for="NameField" class="input-group-text span-modify" id="spanId"></label><br />
+            </div>
+            <input asp-for="NameField" class="form-control is-valid editor-modify" aria_describedby="spanId" />
+            <div class="input-group-append">
+                <span asp-validation-for="NameField" class="input-group-text span-modify" id="spanId"></span>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label asp-for="Deposit" class="input-group-text span-modify" id="spanId"></label><br />
+            </div>
+            <input asp-for="Deposit" class="form-control is-valid editor-modify" aria_describedby="spanId" />
+            <div class="input-group-append">
+                <span asp-validation-for="Deposit" class="input-group-text" id="spanId"></span>
+                <span class="input-group-text" id="spanId">Текст</span>
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="Save" />
+        </div>
+    </div>
+</form>
+
+<div class="form-group is-valid" id="sandbox-container-datetill">
+    <div class="input-group mb-3 is-valid">
+        <div class="input-group-prepend">
+            <span class="input-group-text span-modify" id="spanId">Год начала разработки</span>
+        </div>
+        @Html.EditorFor(m => m.YearStartDevelopment, new { htmlAttributes = new { @class = "form-control is-valid editor-modify", aria_describedby = "spanId" } })
+
+    </div>
+</div>
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text">$</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+    <div class="input-group-append">
+        <span class="input-group-text">.00</span>
+    </div>
+</div>
+

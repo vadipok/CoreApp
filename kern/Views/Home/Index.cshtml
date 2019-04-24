@@ -1,0 +1,126 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="4000">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+            <img src="~/images/banner2.svg" alt="ASP.NET" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    Learn how to build ASP.NET apps that can run anywhere.
+                    <a class="btn btn-outline-primary" href="https://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
+                        Learn More
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/banner3.svg" alt="Visual Studio" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    There are powerful new features in Visual Studio for building modern web apps.
+                    <a class="btn btn-outline-primary" href="https://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
+                        Learn More
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/banner1.svg" alt="Microsoft Azure" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
+                    <a class="btn btn-outline-primary" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
+                        Learn More
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<br />
+
+
+<div class="row text-center">
+    <div class="col-md-3 icon-cog">
+        <i class="fas fa-database fa-5x text-primary"></i>
+        <h4 class="text-primary">Банк данных</h4>
+        <p>
+            Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.
+            Nullam id dolor id nibh ultricies vehicula ut id elit.
+            Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.
+        </p>
+        <a class="btn btn-outline-primary" asp-area="" asp-controller="DataBank" asp-action="Field">
+            Перейти »
+        </a>
+    </div>
+    <div class="col-md-3 icon-cog">
+        <i class="fas fa-cart-arrow-down fa-5x text-warning"></i>
+        <h4 class="text-warning">Выгрузка данных</h4>
+        <p>
+            Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.
+            Nullam id dolor id nibh ultricies vehicula ut id elit.
+            Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.
+        </p>
+        <a class="btn btn-outline-warning" href="#">
+            Перейти »
+        </a>
+    </div>
+    <div class="col-md-3 icon-cog">
+        <i class="fas fa-chart-line fa-5x text-success"></i>
+        <h4 class="text-success">Аналитика</h4>
+        <p>
+            Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.
+            Nullam id dolor id nibh ultricies vehicula ut id elit.
+            Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.
+        </p>
+        <a class="btn btn-outline-success" href="#">
+            Перейти »
+        </a>
+    </div>
+    <div class="col-md-3 icon-cog">
+        <i class="fas fa-user-cog fa-5x text-danger"></i>
+        <h4 class="text-danger">Управление</h4>
+        <p>
+            Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.
+            Nullam id dolor id nibh ultricies vehicula ut id elit.
+            Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.
+        </p>
+        <a class="btn btn-outline-danger" asp-area="" asp-controller="Account" asp-action="Managment">
+            Перейти »
+        </a>
+    </div>
+</div>
+
+
+<div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center" style="min-height: 200px;">
+
+    <!-- Then put toasts within -->
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000">
+        <div class="toast-header">
+            <strong class="mr-auto">Bootstrap</strong>
+            <small>11 mins ago</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            Hello, world! This is a toast message.
+        </div>
+    </div>
+</div>

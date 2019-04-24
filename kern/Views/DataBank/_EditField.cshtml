@@ -1,0 +1,96 @@
+﻿@using kern.Models.MVC;
+@model FieldMVC
+
+
+<div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content" style="background-color: #2f4050">
+        <div class="modal-header">
+            @{
+                if (Model.Id == 0)
+                {
+                    <h5 class="modal-title" id="exampleModalLabel">Новая залежь</h5>
+                }
+                else
+                {
+                    <h5 class="modal-title" id="exampleModalLabel">Редактировать залежь</h5>
+                }
+            }
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+
+            <form id="List_Form" asp-antiforgery="true" asp-action="RegisterField" asp-controller="DataBank">
+
+                @Html.HiddenFor(m => m.Id)
+
+                <label asp-for="NameField" class="modify-input-label"></label>
+                <div class="input-group input-group-err mb-1">
+                    <input asp-for="NameField" class="form-control is-valid editor-modify" aria_describedby="spanId" />
+                    <div class="input-group-append">
+                        <span asp-validation-for="NameField" class="input-group-text" id="spanId"></span>
+                        <span class="input-group-text" id="spanId">Текст</span>
+                    </div>
+                </div>
+
+                <label asp-for="Deposit" class="modify-input-label"></label>
+                <div class="input-group input-group-err mb-1">
+                    <input asp-for="Deposit" class="form-control editor-modify" aria_describedby="spanId" />
+                    <div class="input-group-append">
+                        <span asp-validation-for="Deposit" class="input-group-text" id="spanId"></span>
+                        <span class="input-group-text" id="spanId">Текст</span>
+                    </div>
+                </div>
+
+                <label asp-for="YearOpening" class="modify-input-label"></label>
+                <div class="input-group input-group-err mb-1">
+                    <input asp-for="YearOpening" class="form-control editor-modify" aria_describedby="spanId" />
+                    <div class="input-group-append">
+                        <span asp-validation-for="YearOpening" class="input-group-text" id="spanId"></span>
+                        <span class="input-group-text" id="spanId">Целое</span>
+                    </div>
+                </div>
+
+                <label asp-for="YearStartDevelopment" class="modify-input-label"></label>
+                <div class="input-group input-group-err mb-1">
+                    <input asp-for="YearStartDevelopment" class="form-control editor-modify" aria_describedby="spanId" />
+                    <div class="input-group-append">
+                        <span asp-validation-for="YearStartDevelopment" class="input-group-text" id="spanId"></span>
+                        <span class="input-group-text" id="spanId">Целое</span>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success fa-pull-left" onclick="showDialog()">
+                <i class="fas fa-save"></i>
+                Сохранить
+            </button>
+            <button type="button" class="btn btn-success" data-dismiss="modal">
+                <i class="fas fa-window-close"></i>
+                Закрыть
+            </button>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" language=javascript>
+    $(document).ready(function () {
+        $.validator.unobtrusive.parse(document);
+
+        // Добавление класса в родительский div при первой загрузке страницы
+        $(".editor-modify").each(function (index, element) {
+            var val = $(this).val();
+            if (val == "" || val == 0) {
+                $(this).parent().addClass('is-invalid');
+            }
+            else {
+                $(this).parent().addClass('is-valid');
+            }
+        });
+
+    })
+</script>

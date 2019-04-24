@@ -1,0 +1,73 @@
+﻿@using kern.Models.Authentication;
+@model Security
+
+
+<div class="modal-dialog" role="document">
+    <div class="modal-content" style="background-color: #2f4050">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Управление пользователем</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+
+            <div class="form-group is-valid" id="sandbox-container-datetill">
+                <div class="input-group mb-3 is-valid">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text span-modify" id="spanId">Логин</span>
+                    </div>
+                    @Html.EditorFor(m => m.DomainLogin, new { htmlAttributes = new { @class = "form-control is-valid editor-modify", aria_describedby = "spanId", disabled = "disabled" } })
+                </div>
+            </div>
+
+            <div class="form-group is-valid" id="sandbox-container-datetill">
+                <div class="input-group mb-3 is-valid">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text span-modify" id="spanId">ФИО</span>
+                    </div>
+                    @Html.EditorFor(m => m.FullName, new { htmlAttributes = new { @class = "form-control is-valid editor-modify", aria_describedby = "spanId", disabled = "disabled" } })
+                </div>
+            </div>
+
+            <div class="form-group is-valid" id="sandbox-container-datetill">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text span-modify" id="spanId">Email</span>
+                    </div>
+                    @Html.EditorFor(m => m.EmailAddress, new { htmlAttributes = new { @class = "form-control is-valid editor-modify", aria_describedby = "spanId", disabled = "disabled" } })
+                </div>
+            </div>
+
+            <table class="table table-sm table-roles">
+                <tbody>
+                    @foreach (var ur in Model.GetAllRoleUser())
+                    {
+
+                        <tr>
+                            <td>
+                                @if (ur.flagRole)
+                                {
+                                    <label class="switch"> <input type="checkbox" class="user-role-check" id="@ur.RoleName" checked /> <span class="slider round"></span></label>
+                                }
+                                else
+                                {
+                                    <label class="switch"> <input type="checkbox" class="user-role-check" id="@ur.RoleName" /> <span class="slider round"></span></label>
+                                }
+                            </td>
+                            <td>
+                                <h5>@ur.Description</h5>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Закрыть</button>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,75 @@
+﻿@using kern.Models.MVC;
+@model FieldMVC
+
+@{
+    Layout = "_LayoutDataBank";
+}
+
+
+
+<div class="card text-white bg-dark mb-3" style="border-color:#28a745">
+    <div class="card-header" style="border-color:#28a745">
+        <ul class="nav nav-pills card-header-pills">
+            <li class="nav-item">
+                <a class="btn btn-danger" href="#">Абдрахмановская</a>
+            </li>
+            <li class="nav-item bs-popover-right">
+                <a class="btn btn-success modItem" asp-controller="DataBank" asp-action="EditField" asp-route-domainLogin="0">
+                    <i class="fas fa-plus-square"></i>
+                    Добавить залежь
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <div class="row">
+
+            <div class="col-md-4 icon-cog">
+                <div class="form-group">
+                    <div class="input-group mb-3 is-valid">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text span-find" id="spanId">@Html.DisplayNameFor(model => model.NameField)</span>
+                        </div>
+                        <input asp-for="NameField" class="form-control is-valid editor-find" aria_describedby="spanId" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 icon-cog">
+                <div class="form-group">
+                    <div class="input-group mb-3 is-valid">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text span-find" id="spanId">@Html.DisplayNameFor(model => model.Deposit)</span>
+                        </div>
+                        <input asp-for="Deposit" class="form-control is-valid editor-find" aria_describedby="spanId" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 icon-cog">
+                <div class="input-group mb-3 is-valid">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text span-find" id="spanId">Кол-во строк</span>
+                    </div>
+                    <select class="custom-select editor-find-check" id="inputGroupSelect03" aria-label="Example select with button addon">
+                        <option selected value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div id="resultSearch"></div>
+
+<div id="modDialog" class="modal fade">
+    <div id="dialogContent"></div>
+</div>
+
+
+

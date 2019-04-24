@@ -1,0 +1,61 @@
+﻿@using kern.Models.Authentication
+@using kern.Models.DataBase
+@model Security
+
+@{
+    ViewData["Title"] = "Учетными записями";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h3>@ViewData["Message"]</h3>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group is-valid" id="sandbox-container-datetill">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text span-modify" id="spanId"><i class="fas fa-filter"></i></span>
+                </div>
+                <input aria-describedby="spanId" class="form-control is-valid editor-modify text-box single-line" id="inputSearch" name="inputSearch" type="text" value="">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="resultSearch"></div>
+
+<div id="modDialog" class="modal fade">
+    <div id="dialogContent" class="modal-dialog"></div>
+</div>
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            function reload_users() {
+                $.ajax({
+                    url: '@Url.Action("AjaxListUsers", "Account")',
+                    contentType: 'application/html; charset=utf-8',
+                    type: 'GET',
+                    dataType: 'html',
+                    data: { SearchText: $('#inputSearch').val() },
+                    success: function (result) {
+                        $('#resultSearch').html(result);
+                    },
+                    error: function (xhr, status) {
+                        alert(status);
+                    }
+                });
+            }
+
+            reload_users();
+
+            $("#inputSearch").keyup(function (e) {
+                e.preventDefault();
+
+                reload_users();
+            });
+        });
+    </script>
+}

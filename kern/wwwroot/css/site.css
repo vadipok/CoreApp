@@ -1,0 +1,235 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #2f4050;
+    color: #bbc2ce;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+/* Иконки главного окна */
+.icon-cog {
+    color: #bbc2ce;
+}
+
+/* Футер шаблона */
+.footer-class {
+    position: absolute;
+    bottom: 0;
+}
+
+/* Черточка над футером */
+.index-hr {
+    border-top: 1px solid #eee;
+}
+
+/* Спан инпутов */
+/*.span-modify {
+    border: 1px solid #28a745;
+    background-color: #28a745;
+    color: white;
+}*/
+
+/* Фон инпутов */
+.editor-modify {
+    background-image: none !important;
+}
+
+/* Список ролей пользователей */
+.table-roles {
+    margin-bottom: 0rem !important;
+}
+    .table-roles th,
+    .table-roles td {
+        border-top: none !important;
+        color: white;
+    }
+
+
+/*
+++++++++++++++++++++++++++++++++++++++++++++
++ Изменение размеров и стилей переключателя 
++ прав пользователей
+++++++++++++++++++++++++++++++++++++++++++++
+*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+input:checked + .slider {
+    background-color: #28a745;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #28a745;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+/* Конец изменения стилей переключателя */
+
+
+/*
+++++++++++++++++++++++++++++++++++++++++++++
++ Стили инпутов для поисков
+++++++++++++++++++++++++++++++++++++++++++++
+*/
+
+/* Лабел поиска */
+.input-group-find {
+    border: 1px solid #28a745;
+    background-color: #28a745;
+    color: white;
+}
+
+/* Убираем галочку внутри инпута и добавляем зеленую обводку */
+.editor-find {
+    border: 1px solid #28a745;
+    background-image: none !important;
+    background-color: #e9ecef;
+}
+
+/* Чекбокс в меню поиска */
+.editor-find-check {
+    border: 1px solid #28a745;
+    background-color: #e9ecef;
+}
+
+/*
+++++++++++++++++++++++++++++++++++++++++++++
++ Изменение стилей проверок вводимых данных
+++++++++++++++++++++++++++++++++++++++++++++
+*/
+/* Убираем сообщение об ошибке при статусе is-valid */
+.is-valid .input-group-append .field-validation-valid {
+    display: none;
+}
+
+/* Ввод корректен! Спан в начале инпута */
+.is-valid .input-group-text {
+    border: 1px solid #28a745;
+    background-color: #28a745;
+    color: white;
+}
+
+/* Ввод корректен! Спан в конце инпута */
+.is-valid .input-group-append .input-group-text {
+    border: 1px solid #28a745;
+    background-color: #28a745;
+    color: white;
+}
+
+/* Ввод корректный! Инпут */
+.is-valid .editor-modify {
+    border: 2px solid #28a745;
+    background-color: #e9ecef;
+}
+
+/* Ввод ошибочный! Инпут */
+.is-invalid .editor-modify {
+    border: 1px solid #a94442;
+    background-color: #e9ecef;
+}
+
+/* Ввод ошибочный! Спан в начале инпута */
+.is-invalid .input-group-text {
+    border: 1px solid #dc3545;
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Ввод ошибочный! Спан в конце инпута */
+.is-invalid .input-group-append .input-group-text {
+    border: 1px solid #a94442;
+    background-color: #f2dede;
+    color: #a94442;
+}
+
+/* Label над итемом редактирования */
+.modify-input-label {
+    margin-bottom: 0rem;
+    color: #bbc2ce;
+}
+
+.field-validation-error {
+    border: 1px solid #dc3545;
+    background-color: #dc3545;
+    color: white;
+}
+

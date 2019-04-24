@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Test";
+}
+
+<h3>@ViewData["Message"]</h3>
+
+
+<form class="was-validated" method="POST" enctype="multipart/form-data" action="/UploadExcelFileEconomist">
+
+    <div class="card border-success mb-3">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+            <div class="custom-file">
+                <input type="file" name="files" class="custom-file-input" id="validatedCustomFile" required accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+                <label class="custom-file-label" for="validatedCustomFile">Выберите файл ...</label>
+                <div class="invalid-feedback">Необходимо указать ссылку на файл</div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <input class="btn btn-outline-primary btn-file" id="btnFileUpload" type="submit" value="Расчитать">
+        </div>
+    </div>
+
+</form>
+
+<!--asp-controller="UploadExcelFile" asp-action="Index"-->
